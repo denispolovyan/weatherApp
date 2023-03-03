@@ -1,26 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="wrapper">
+    <header-navbar class="header" @loadWeekForecast="loadWeekForecast" />
+    <main class="main__block">
+      <forecast-container :weekForecast="weekForecast" />
+    </main>
+    <footer-navbar class="footer"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderNavbar from "./components/HeaderNavbar.vue";
+import FooterNavbar from "./components/FooterNavbar.vue";
+import ForecastContainer from "./components/ForecastContainer.vue";
+import { loadWeatherData } from "./api";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HeaderNavbar,
+    FooterNavbar,
+    ForecastContainer,
+  },
+  data: () => {
+    return {
+      weekForecast: [],
+      currentCity: "",
+    };
+  },
+  methods: {
+    async loadWeekForecast(city) {
+      this.weekForecast = await loadWeatherData(city);
+      this.currentCity = city;
+      console.log(this.weekForecast);
+    },
+  },
+
+  created() {},
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url("./assets/css/nullstyle.css");
+#app{
+	height: 100%;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.main__block {
+  flex: 1 0 auto;
 }
 </style>
