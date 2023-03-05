@@ -19,10 +19,10 @@
 
 <style >
 .footer__body {
-  height: 100px;
+  height: 60px;
   display: flex;
   align-items: center;
-  background-color: #e2fed9;
+  background-color: #e2e2e2;
   padding: 0px 20px;
 }
 .logo {
