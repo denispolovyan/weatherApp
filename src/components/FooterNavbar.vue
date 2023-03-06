@@ -1,23 +1,15 @@
 <template>
   <div class="footer__body">
-    <div class="logo">
-      <div class="logo__body">
-        <img
-          class="logo__img"
-          src="../assets/img/logo.png"
-          alt="logo"
-          style="width: 60px"
-        />
-      </div>
-    </div>
     <div class="list">
       <div class="list__body">
+			<div class="list__item">Weather in real time all around the world</div>
+			<div class="list__item">© WeatherApp</div>
       </div>
     </div>
   </div>
 </template>
 
-<style >
+<style scoped>
 .footer__body {
   height: 60px;
   display: flex;
@@ -25,20 +17,19 @@
   background-color: #e2e2e2;
   padding: 0px 20px;
 }
-.logo {
-  flex: 1 1 200px;
-}
 .list {
   width: 100%;
 }
 .list__body {
-  justify-content: end;
+	display: flex;
+	flex-direction: column;
+  justify-content: center;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 5px;
 }
-.item {
+.list__item {
   font-size: 16px;
-  display: flex;
+
 }
 </style>
