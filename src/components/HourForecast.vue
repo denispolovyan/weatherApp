@@ -46,6 +46,21 @@ export default {
   margin: 0px auto 40px auto;
   overflow: hidden;
 }
+.card__body {
+  font-family: "Nunito Sans", sans-serif;
+  padding: 10px 10px 5px 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #c3dded;
+  width:100px;
+}
+.weather{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .weather__temperature_hour {
   text-align: center;
 }

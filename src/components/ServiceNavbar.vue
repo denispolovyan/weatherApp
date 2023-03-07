@@ -81,8 +81,9 @@ export default {
   height: 40px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   justify-content: end;
+  font-family: "Nunito Sans", sans-serif;
 }
 .service__item {
   background-color: #fff;
@@ -93,5 +94,13 @@ export default {
 .bgcolor {
   transition-duration: 0.5s;
   background-color: #a29eea;
+}
+@media (max-width: 700px) {
+  .service__body {
+    gap: 8px;
+  }
+  .service__item {
+    padding: 2.5px 8px;
+  }
 }
 </style>

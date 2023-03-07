@@ -9,7 +9,7 @@
         <div class="card">
           <div class="card__body">
             <div class="weather">
-              <div class="weather-date">{{ dayForecast.date }}</div>
+              <div class="weather__date">{{ dayForecast.date }}</div>
               <div class="weather__temperature">
                 <div class="max-weather">
                   max<br />{{ Math.round(dayForecast.day.maxtemp_c) }}
@@ -115,7 +115,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.cards__wrapper {
+  padding: 0px 20px;
+}
 .cards__container {
   margin: 20px;
   display: flex;
@@ -123,21 +126,25 @@ export default {
   justify-content: start;
   margin: 40px auto 10px auto;
   max-width: 765px;
+  overflow: hidden;
   overflow-x: scroll;
 }
 .card__body {
   font-family: "Nunito Sans", sans-serif;
-  font-weight: 600px;
   padding: 10px 10px 5px 10px;
   border: 1px solid #000;
   border-radius: 10px;
   text-align: center;
   background-color: #c3dded;
+  width: 100px;
 }
 .weather {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.weather__date {
+  white-space: nowrap;
 }
 .weather__temperature {
   display: flex;
@@ -148,21 +155,24 @@ export default {
   width: 64px;
 }
 .rain {
-	font-size: 10px;
+  font-size: 9px;
 }
 .wind {
-	font-size: 10px;
+  font-size: 9px;
 }
 .humidity {
-	font-size: 10px;
+  font-size: 9px;
 }
 .sunphase {
-	font-size: 10px;
+  font-size: 9px;
 }
-.sunphase{
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-	font-size: 9px;
+.sunphase {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 9px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #fff;
 }
 </style>

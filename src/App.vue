@@ -105,10 +105,17 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #f3eae8;
+  background-color: #e9fdf5;
   margin: 0px 15%;
 }
 .main__block {
   flex: 1 0 auto;
 }
+
+@media (max-width: 1000px) {
+  .wrapper {
+    margin: 0px;
+  }
+}
+
 </style>

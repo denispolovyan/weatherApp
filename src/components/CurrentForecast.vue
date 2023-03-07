@@ -15,7 +15,9 @@
           alt="weather image"
         />
       </div>
-      <div class="wind">{{ currentForecast.current.wind_kph }} kph</div>
+      <div class="current__wind">
+        {{ currentForecast.current.wind_kph }} kph
+      </div>
     </div>
   </div>
 </template>
@@ -31,13 +33,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .current {
   margin: 40px 0px;
   text-align: center;
 }
 .current__body {
-	border-radius: 5px;
+  border-radius: 5px;
   padding: 20px;
   background-color: #c3dded;
   border: 1px solid #000;
@@ -46,23 +48,14 @@ export default {
   width: 250px;
   margin: 0px auto;
   gap: 5px;
+  font-family: "Nunito Sans", sans-serif;
 }
-.current__date {
-}
-.current__place {
-}
-.temperature {
-}
-.temperature__min {
-}
-.temperature__max {
-}
-.current__icon img{
-	width: 64px;
-	height: 64px;
-	border: 1px solid #000;
-	border-radius: 5px;
-	background-color: #fff;
+.current__icon img {
+  width: 64px;
+  height: 64px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
 }
 .wind {
 }

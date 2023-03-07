@@ -1,7 +1,7 @@
 <template>
   <form action="" class="form">
     <div class="form__input">
-      <input
+      <input maxlength="20"
         :class="{
           redBorder: responseError && !currentCity,
         }"
@@ -35,13 +35,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form {
   display: flex;
 }
 .form__input input {
   height: 20px;
-  width: 140px;
+  width: 110px;
   padding: 0px 10px;
   border-radius: 5px 0px 0px 5px;
 }
@@ -49,6 +49,7 @@ export default {
   height: 20px;
   width: 40px;
   border-radius: 0px 5px 5px 0px;
+   background-color: #cdbaff;
 }
 .redBorder {
   border: 1px solid red;

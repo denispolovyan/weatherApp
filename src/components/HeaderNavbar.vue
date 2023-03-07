@@ -55,7 +55,8 @@ export default {
 
 <style scoped>
 .header__body {
-  height: 60px;
+  font-family: "Nunito Sans", sans-serif;
+  height: 40px;
   display: flex;
   align-items: center;
   background-color: #e0f1f6;
@@ -64,9 +65,9 @@ export default {
 .logo {
   flex: 1 1 200px;
 }
-.logo__body img{
-	height: 40px;
-	max-width: 40px;
+.logo__body img {
+  height: 40px;
+  max-width: 40px;
 }
 .list {
   width: 100%;
@@ -85,5 +86,13 @@ export default {
   padding: 2.5px 15px;
   background-color: #a29eea;
   border-radius: 5px;
+}
+@media (max-width: 700px) {
+  .city {
+    padding: 2.5px 8px;
+  }
+  .list__body {
+    gap: 10px;
+  }
 }
 </style>

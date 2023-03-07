@@ -91,6 +91,7 @@ export default {
   background-color: #c2d1ff;
 }
 .quantity__body {
+  font-family: "Nunito Sans", sans-serif;
   height: 40px;
   display: flex;
   align-items: center;
@@ -102,9 +103,18 @@ export default {
   padding: 2.5px 15px;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .bgcolor {
-	transition-duration: .5s;
+  transition-duration: 0.5s;
   background-color: #a29eea;
+}
+@media (max-width: 700px) {
+  .quantity__body {
+    gap: 12px;
+  }
+  .quantity__item {
+    padding: 2.5px 8px;
+  }
 }
 </style>
