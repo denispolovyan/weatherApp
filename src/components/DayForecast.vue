@@ -24,6 +24,23 @@
                   alt="weather__icon"
                 />
               </div>
+              <div class="rain" v-if="services.rain">
+                Rain: {{ dayForecast.day.daily_chance_of_rain }} %
+              </div>
+              <div class="wind" v-if="services.wind">
+                Wind: {{ dayForecast.day.maxwind_kph }} kph
+              </div>
+              <div class="humidity" v-if="services.humidity">
+                Humidity: {{ dayForecast.day.avghumidity }} %
+              </div>
+              <div class="sunphase" v-if="services.sunphase">
+                <div class="sunphase__sunrise">
+                  Sunrise: {{ dayForecast.astro.sunrise }}
+                </div>
+                <div class="sunphase__sunset">
+                  Sunset: {{ dayForecast.astro.sunset }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -56,6 +73,10 @@ export default {
       required: false,
     },
     currentForecast: {
+      type: Object,
+      required: false,
+    },
+    services: {
       type: Object,
       required: false,
     },
@@ -99,9 +120,10 @@ export default {
   margin: 20px;
   display: flex;
   gap: 10px;
-  justify-content: center;
+  justify-content: start;
   margin: 40px auto 10px auto;
-  overflow: hidden;
+  max-width: 765px;
+  overflow-x: scroll;
 }
 .card__body {
   font-family: "Nunito Sans", sans-serif;
@@ -112,16 +134,35 @@ export default {
   text-align: center;
   background-color: #c3dded;
 }
+.weather {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 .weather__temperature {
   display: flex;
   justify-content: space-between;
 }
-.weather-date {
-  margin-bottom: 10px;
-}
-
 .weather__icon img {
   height: 64px;
   width: 64px;
+}
+.rain {
+	font-size: 10px;
+}
+.wind {
+	font-size: 10px;
+}
+.humidity {
+	font-size: 10px;
+}
+.sunphase {
+	font-size: 10px;
+}
+.sunphase{
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-size: 9px;
 }
 </style>

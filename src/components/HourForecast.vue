@@ -41,8 +41,8 @@ export default {
 .hour-forecast__container {
   display: flex;
   justify-content: start;
-  max-width: 766px;
-  gap: 5px;
+  max-width: 765px;
+  gap: 10px;
   margin: 0px auto 40px auto;
   overflow: hidden;
 }

@@ -83,7 +83,7 @@ export default {
 }
 .city {
   padding: 2.5px 15px;
-  background-color: #fff;
+  background-color: #a29eea;
   border-radius: 5px;
 }
 </style>

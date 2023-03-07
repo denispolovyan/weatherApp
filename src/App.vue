@@ -6,7 +6,7 @@
       :currentCity="currentCity"
       :responseError="responseError"
     />
-    <service-navbar />
+    <service-navbar @addServicesToForecast="addServicesToForecast" />
     <quantity-navbar
       @setForecastLength="setForecastLength"
       @currentForecastResponse="loadCurrentForecast"
@@ -15,6 +15,7 @@
       <day-forecast
         :weekForecast="weekForecast"
         :currentForecast="currentForecast"
+        :services="services"
       />
     </main>
     <footer-navbar class="footer" />
@@ -46,6 +47,7 @@ export default {
       currentCity: "Kiev",
       responseError: false,
       forecastDaysQuantity: "7",
+      services: {},
     };
   },
   methods: {
@@ -61,6 +63,7 @@ export default {
         this.weekForecast = forecastResponse;
         this.currentCity = city;
         this.currentForecast = [];
+        console.log(forecastResponse);
       }
     },
     async loadCurrentForecast() {
@@ -71,6 +74,10 @@ export default {
     },
     setForecastLength(length) {
       this.forecastDaysQuantity = length;
+    },
+    addServicesToForecast(services) {
+      this.services = services;
+      console.log(this.services);
     },
   },
 
