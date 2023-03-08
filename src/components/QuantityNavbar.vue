@@ -26,6 +26,17 @@
       <div
         class="quantity__item"
         :class="{
+          bgcolor: quantity.tomorrow,
+        }"
+        id="tomorrow"
+        @click.stop="$emit('setForecastLength', 2)"
+        @click="setStylesForButton"
+      >
+        Tomorrow
+      </div>
+      <div
+        class="quantity__item"
+        :class="{
           bgcolor: quantity.threeDays,
         }"
         id="threeDays"
@@ -67,6 +78,7 @@ export default {
       quantity: {
         now: false,
         today: false,
+        tomorrow: false,
         threeDays: false,
         sevenDays: true,
         fourteenDays: false,
@@ -111,10 +123,10 @@ export default {
 }
 @media (max-width: 700px) {
   .quantity__body {
-    gap: 12px;
+    gap: 6px;
   }
   .quantity__item {
-    padding: 2.5px 8px;
+    padding: 5px 6px;
   }
 }
 </style>

@@ -1,8 +1,14 @@
 <template>
   <div class="cards__wrapper">
-    <div class="cards__container" v-if="!Object.keys(currentForecast).length">
+    <div
+      class="cards__container"
+      :class="{
+        overflowX: showScroll,
+      }"
+      v-if="!Object.keys(currentForecast).length"
+    >
       <div
-        v-for="dayForecast in weekForecast"
+        v-for="dayForecast in quantityForecast"
         v-bind:key="dayForecast.date"
         @click="select(dayForecast.date), showHourForecast(dayForecast.date)"
       >
@@ -68,7 +74,7 @@ export default {
   },
 
   props: {
-    weekForecast: {
+    quantityForecast: {
       type: Array,
       required: false,
     },
@@ -85,6 +91,8 @@ export default {
     return {
       currentDate: "",
       dayForecast: [],
+      showScroll: true,
+      clientWidth: null,
     };
   },
   methods: {
@@ -93,7 +101,7 @@ export default {
     },
     showHourForecast(focusDate) {
       if (focusDate == this.currentDate) {
-        const dayForecast = this.weekForecast.filter(
+        const dayForecast = this.quantityForecast.filter(
           (day) => day.date == focusDate
         );
         dayForecast.forEach((day) => {
@@ -101,16 +109,35 @@ export default {
         });
       }
     },
+    getWindowSize() {
+      this.clientWidth = window.screen.width;
+    },
   },
   watch: {
-    weekForecast() {
+    quantityForecast() {
       this.dayForecast = [];
+      if (this.quantityForecast.length < 8 && this.clientWidth > 800) {
+        this.showScroll = false;
+      } else if (this.quantityForecast.length > 3 && this.clientWidth < 800) {
+        this.showScroll = true;
+      } else if (this.quantityForecast.length < 4) {
+        this.showScroll = false;
+      } else {
+			this.showScroll = true;
+		}
     },
     currentForecast() {
       if (Object.keys(this.currentForecast).length) {
         console.log(this.currentForecast);
       }
     },
+  },
+  mounted() {
+    window.addEventListener("resize", this.getWindowSize);
+    this.getWindowSize();
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.getWindowSize);
   },
 };
 </script>
@@ -120,6 +147,9 @@ export default {
   padding: 0px 20px;
 }
 .cards__container {
+  /* border: 1px solid #000;
+  border-bottom: none;
+  padding: 20px; */
   margin: 20px;
   display: flex;
   gap: 10px;
@@ -127,7 +157,6 @@ export default {
   margin: 40px auto 10px auto;
   max-width: 765px;
   overflow: hidden;
-  overflow-x: scroll;
 }
 .card__body {
   font-family: "Nunito Sans", sans-serif;
@@ -172,7 +201,7 @@ export default {
   gap: 2px;
   font-size: 9px;
 }
-::-webkit-scrollbar-thumb:hover {
-    background-color: #fff;
+.overflowX {
+  overflow-x: scroll;
 }
 </style>

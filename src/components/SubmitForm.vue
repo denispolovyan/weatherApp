@@ -40,13 +40,13 @@ export default {
   display: flex;
 }
 .form__input input {
-  height: 20px;
+  height: 24px;
   width: 110px;
   padding: 0px 10px;
   border-radius: 5px 0px 0px 5px;
 }
 .form__button button {
-  height: 20px;
+  height: 24px;
   width: 40px;
   border-radius: 0px 5px 5px 0px;
    background-color: #cdbaff;

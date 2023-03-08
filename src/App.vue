@@ -13,7 +13,7 @@
     />
     <main class="main__block">
       <day-forecast
-        :weekForecast="weekForecast"
+        :quantityForecast="quantityForecast"
         :currentForecast="currentForecast"
         :services="services"
       />
@@ -42,7 +42,7 @@ export default {
   },
   data: () => {
     return {
-      weekForecast: [],
+      quantityForecast: [],
       currentForecast: [],
       currentCity: "Kiev",
       responseError: false,
@@ -56,14 +56,14 @@ export default {
         city,
         this.forecastDaysQuantity
       );
-      if (forecastResponse == "Error: Bad Request") {
+      if (!Array.isArray(forecastResponse)) {
         this.responseError = true;
         return;
       } else {
-        this.weekForecast = forecastResponse;
+        console.log(forecastResponse);
+        this.quantityForecast = forecastResponse;
         this.currentCity = city;
         this.currentForecast = [];
-        console.log(forecastResponse);
       }
     },
     async loadCurrentForecast() {
@@ -111,11 +111,13 @@ export default {
 .main__block {
   flex: 1 0 auto;
 }
+.footer{
+	flex: 0 0 auto;
+}
 
 @media (max-width: 1000px) {
   .wrapper {
     margin: 0px;
   }
 }
-
 </style>

@@ -89,7 +89,7 @@ export default {
 }
 @media (max-width: 700px) {
   .city {
-    padding: 2.5px 8px;
+    padding: 5px 6px;
   }
   .list__body {
     gap: 10px;

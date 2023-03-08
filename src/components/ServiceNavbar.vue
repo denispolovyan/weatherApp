@@ -100,7 +100,7 @@ export default {
     gap: 8px;
   }
   .service__item {
-    padding: 2.5px 8px;
+    padding: 5px 6px;
   }
 }
 </style>
