@@ -123,12 +123,12 @@ export default {
       } else if (this.quantityForecast.length < 4) {
         this.showScroll = false;
       } else {
-			this.showScroll = true;
-		}
+        this.showScroll = true;
+      }
     },
     currentForecast() {
       if (Object.keys(this.currentForecast).length) {
-        console.log(this.currentForecast);
+        this.$emit("setFlagForCurrentForecast");
       }
     },
   },
@@ -147,9 +147,6 @@ export default {
   padding: 0px 20px;
 }
 .cards__container {
-  /* border: 1px solid #000;
-  border-bottom: none;
-  padding: 20px; */
   margin: 20px;
   display: flex;
   gap: 10px;

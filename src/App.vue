@@ -13,6 +13,7 @@
     />
     <main class="main__block">
       <day-forecast
+        @setFlagForCurrentForecast="flagForCurrentForecast = true"
         :quantityForecast="quantityForecast"
         :currentForecast="currentForecast"
         :services="services"
@@ -48,10 +49,16 @@ export default {
       responseError: false,
       forecastDaysQuantity: "7",
       services: {},
+      flagForCurrentForecast: false,
     };
   },
   methods: {
     async loadForecast(city) {
+      if (this.flagForCurrentForecast && this.currentCity != city) {
+        this.currentCity = city;
+        this.loadCurrentForecast();
+        return;
+      }
       const forecastResponse = await loadWeatherData(
         city,
         this.forecastDaysQuantity
@@ -60,7 +67,8 @@ export default {
         this.responseError = true;
         return;
       } else {
-        console.log(forecastResponse);
+        this.flagForCurrentForecast = false;
+        this.responseError = false;
         this.quantityForecast = forecastResponse;
         this.currentCity = city;
         this.currentForecast = [];
@@ -70,14 +78,20 @@ export default {
       const currentForecastResponse = await loadCurrentWeatherData(
         this.currentCity
       );
-      this.currentForecast = currentForecastResponse;
+      if (typeof currentForecastResponse != 'object') {
+        this.responseError = true;
+        return;
+      } else {
+        this.responseError = false;
+        this.currentForecast = currentForecastResponse;
+      }
     },
+
     setForecastLength(length) {
       this.forecastDaysQuantity = length;
     },
     addServicesToForecast(services) {
       this.services = services;
-      console.log(this.services);
     },
   },
 
@@ -111,8 +125,8 @@ export default {
 .main__block {
   flex: 1 0 auto;
 }
-.footer{
-	flex: 0 0 auto;
+.footer {
+  flex: 0 0 auto;
 }
 
 @media (max-width: 1000px) {
