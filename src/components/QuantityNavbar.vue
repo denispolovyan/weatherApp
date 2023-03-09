@@ -123,10 +123,18 @@ export default {
 }
 @media (max-width: 700px) {
   .quantity__body {
-    gap: 6px;
+    gap: 8px;
   }
   .quantity__item {
-    padding: 5px 6px;
+    padding: 5px 4px;
+  }
+  .quantity {
+    padding: 0px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .quantity__body {
+    gap: 4px;
   }
 }
 </style>

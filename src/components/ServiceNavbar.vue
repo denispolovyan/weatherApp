@@ -102,5 +102,8 @@ export default {
   .service__item {
     padding: 5px 6px;
   }
+  .service {
+    padding: 0px 10px;
+  }
 }
 </style>

@@ -94,5 +94,8 @@ export default {
   .list__body {
     gap: 10px;
   }
+  .header__body {
+    padding: 0px 10px;
+  }
 }
 </style>

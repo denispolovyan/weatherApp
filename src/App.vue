@@ -45,7 +45,7 @@ export default {
     return {
       quantityForecast: [],
       currentForecast: [],
-      currentCity: "Kiev",
+      currentCity: "",
       responseError: false,
       forecastDaysQuantity: "7",
       services: {},
@@ -56,6 +56,7 @@ export default {
     async loadForecast(city) {
       if (this.flagForCurrentForecast && this.currentCity != city) {
         this.currentCity = city;
+        this.forecastDaysQuantity = "";
         this.loadCurrentForecast();
         return;
       }
@@ -78,10 +79,11 @@ export default {
       const currentForecastResponse = await loadCurrentWeatherData(
         this.currentCity
       );
-      if (typeof currentForecastResponse != 'object') {
+      if ((typeof currentForecastResponse != "object") || currentForecastResponse.code == 1006) {
         this.responseError = true;
         return;
       } else {
+        this.forecastDaysQuantity = "";
         this.responseError = false;
         this.currentForecast = currentForecastResponse;
       }
@@ -97,7 +99,9 @@ export default {
 
   watch: {
     forecastDaysQuantity() {
-      this.loadForecast(this.currentCity);
+      if (this.forecastDaysQuantity) {
+        this.loadForecast(this.currentCity);
+      }
     },
   },
 
@@ -129,7 +133,7 @@ export default {
   flex: 0 0 auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .wrapper {
     margin: 0px;
   }
