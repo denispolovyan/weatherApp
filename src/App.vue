@@ -46,9 +46,10 @@ export default {
       quantityForecast: [],
       currentForecast: [],
       currentCity: "",
-      responseError: false,
+      currentCityDuplicate: "",
       forecastDaysQuantity: "7",
       services: {},
+      responseError: false,
       flagForCurrentForecast: false,
     };
   },
@@ -60,10 +61,12 @@ export default {
         this.loadCurrentForecast();
         return;
       }
+
       const forecastResponse = await loadWeatherData(
         city,
         this.forecastDaysQuantity
       );
+
       if (!Array.isArray(forecastResponse)) {
         this.responseError = true;
         return;
@@ -72,6 +75,7 @@ export default {
         this.responseError = false;
         this.quantityForecast = forecastResponse;
         this.currentCity = city;
+        this.currentCityDuplicate = city;
         this.currentForecast = [];
       }
     },
@@ -79,13 +83,18 @@ export default {
       const currentForecastResponse = await loadCurrentWeatherData(
         this.currentCity
       );
-      if ((typeof currentForecastResponse != "object") || currentForecastResponse.code == 1006) {
+      if (
+        typeof currentForecastResponse != "object" ||
+        currentForecastResponse["error"]
+      ) {
         this.responseError = true;
+        this.currentCity = this.currentCityDuplicate;
         return;
       } else {
         this.forecastDaysQuantity = "";
         this.responseError = false;
         this.currentForecast = currentForecastResponse;
+        this.currentCityDuplicate = this.currentCity;
       }
     },
 
