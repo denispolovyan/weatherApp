@@ -18,6 +18,7 @@
         :currentForecast="currentForecast"
         :services="services"
       />
+      <push-message v-if="showPushMessage" />
     </main>
     <footer-navbar class="footer" />
   </div>
@@ -29,6 +30,8 @@ import FooterNavbar from "./components/FooterNavbar.vue";
 import DayForecast from "./components/DayForecast.vue";
 import ServiceNavbar from "./components/ServiceNavbar.vue";
 import QuantityNavbar from "./components/QuantityNavbar.vue";
+import PushMessage from "./components/PushMessage.vue";
+
 import { loadWeatherData } from "./api";
 import { loadCurrentWeatherData } from "./api";
 
@@ -40,6 +43,7 @@ export default {
     DayForecast,
     ServiceNavbar,
     QuantityNavbar,
+    PushMessage,
   },
   data: () => {
     return {
@@ -47,14 +51,21 @@ export default {
       currentForecast: [],
       currentCity: "",
       currentCityDuplicate: "",
-      forecastDaysQuantity: "7",
+      forecastDaysQuantity: "3",
       services: {},
       responseError: false,
       flagForCurrentForecast: false,
+      showPushMessage: false,
     };
   },
   methods: {
     async loadForecast(city) {
+      if (this.forecastDaysQuantity > 3) {
+        this.showPushMessage = true;
+        setTimeout(() => {
+          this.showPushMessage = false;
+        }, 3000);
+      }
       if (this.flagForCurrentForecast && this.currentCity != city) {
         this.currentCity = city;
         this.forecastDaysQuantity = "";
@@ -137,6 +148,7 @@ export default {
 }
 .main__block {
   flex: 1 0 auto;
+  position: relative;
 }
 .footer {
   flex: 0 0 auto;

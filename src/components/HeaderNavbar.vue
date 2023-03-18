@@ -14,7 +14,7 @@
       <div class="list__body">
         <div class="list__item">
           <div class="city">
-            <div class="city__body">{{ currentCity }}</div>
+            <div class="city__body">{{ currentCity || "Select city" }}</div>
           </div>
         </div>
         <div class="list__item">

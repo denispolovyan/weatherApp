@@ -1,7 +1,7 @@
 const apiKey = "77b6a98ada8b4138b34193721230303";
 const apiUrl = "https://api.weatherapi.com/v1/";
 
-export function loadWeatherData(query = "Kiev", days = "7") {
+export function loadWeatherData(query = "Kiev", days) {
   return fetch(`${apiUrl}forecast.json?key=${apiKey}&q=${query}&days=${days}`)
     .then((data) => {
       return data.json();

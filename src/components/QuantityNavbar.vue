@@ -79,8 +79,8 @@ export default {
         now: false,
         today: false,
         tomorrow: false,
-        threeDays: false,
-        sevenDays: true,
+        threeDays: true,
+        sevenDays: false,
         fourteenDays: false,
       },
     };
