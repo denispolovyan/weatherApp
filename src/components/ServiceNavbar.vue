@@ -4,6 +4,10 @@
       class="service__body"
       @click="$emit('addServicesToForecast', services)"
     >
+      <div class="forecast-tip" v-if="!hideTip">
+        <img src="../assets/img/info.png" alt="info" /> Click weather card to
+        watch hourly forecast
+      </div>
       <div
         class="service__item"
         :class="{
@@ -58,6 +62,7 @@ export default {
         humidity: false,
         sunphase: false,
       },
+      hideTip: false,
     };
   },
   methods: {
@@ -69,6 +74,11 @@ export default {
       this.services[element] = true;
     },
   },
+  mounted() {
+    setTimeout(() => {
+      this.hideTip = true;
+    }, 3000);
+  },
 };
 </script>
 
@@ -78,6 +88,7 @@ export default {
   background-color: #3d36b4;
 }
 .service__body {
+  position: relative;
   height: 60px;
   display: flex;
   align-items: center;
@@ -100,6 +111,16 @@ export default {
   background-color: #3d36b4;
   color: #fff;
 }
+.forecast-tip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: #fff;
+}
+
 @media (max-width: 700px) {
   .service__body {
     gap: 8px;
