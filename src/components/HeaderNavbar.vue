@@ -1,5 +1,6 @@
 <template>
-  <div class="header__body">
+  <div class="header">
+	<div class="header__body">
     <div class="logo">
       <div class="logo__body">
         <img
@@ -25,6 +26,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -54,15 +56,20 @@ export default {
 </script>
 
 <style scoped>
+
+.header{
+	background-color: #82daf8;
+
+}
 .header__body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 600;
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #82daf8;
   padding: 0px 20px;
   gap: 10px;
+  margin: 0px auto
 }
 .logo {
   flex: 1 1 200px;
@@ -102,6 +109,13 @@ export default {
   }
   .header__body {
     padding: 0px 10px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .header__body {
+	padding: 0px;
+    width: 765px;
   }
 }
 </style>

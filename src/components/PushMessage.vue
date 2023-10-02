@@ -41,7 +41,7 @@
 }
 .push-message__img {
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 13px;
 }
 </style>

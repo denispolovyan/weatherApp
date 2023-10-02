@@ -158,7 +158,7 @@ export default {
 .card__body {
   font-family: "Nunito Sans", sans-serif;
   padding: 10px 10px 5px 10px;
-  border: 1px solid #fff;
+
   border-radius: 10px;
   text-align: center;
   width: 100px;
@@ -201,4 +201,5 @@ export default {
 .overflowX {
   overflow-x: scroll;
 }
+
 </style>

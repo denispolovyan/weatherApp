@@ -141,6 +141,7 @@ export default {
 
 .wrapper {
   display: flex;
+  background: url('./assets/img/background.jpg') 30%;
   flex-direction: column;
   height: 100%;
   background-color: #ffffff;

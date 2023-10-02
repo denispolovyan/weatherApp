@@ -85,10 +85,9 @@ export default {
   justify-content: end;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 600;
-
 }
 .service__item {
-	display: flex;
+  display: flex;
   align-items: center;
   height: 30px;
   background-color: #fff;
@@ -99,8 +98,7 @@ export default {
 .bgcolor {
   transition-duration: 0.5s;
   background-color: #3d36b4;
-  color: #fff
-
+  color: #fff;
 }
 @media (max-width: 700px) {
   .service__body {
@@ -111,6 +109,12 @@ export default {
   }
   .service {
     padding: 0px 10px;
+  }
+}
+@media (min-width: 1050px) {
+  .service__body {
+    width: 765px;
+    margin: 0px auto;
   }
 }
 </style>

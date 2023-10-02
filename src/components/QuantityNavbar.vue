@@ -142,4 +142,11 @@ export default {
     gap: 4px;
   }
 }
+
+@media (min-width: 1050px) {
+  .quantity__body {
+    width: 765px;
+    margin: 0px auto;
+  }
+}
 </style>
