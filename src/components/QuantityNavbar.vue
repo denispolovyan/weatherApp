@@ -100,26 +100,31 @@ export default {
 <style scoped>
 .quantity {
   padding: 0px 20px;
-  background-color: #c2d1ff;
+  background-color: #82daf8;
 }
 .quantity__body {
   font-family: "Nunito Sans", sans-serif;
-  height: 40px;
+  font-weight: 600;
+  height: 60px;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
   justify-content: end;
 }
 .quantity__item {
+  display: flex;
+  align-items: center;
   background-color: #fff;
   padding: 2.5px 15px;
   border-radius: 5px;
   cursor: pointer;
   white-space: nowrap;
+  height: 30px;
 }
 .bgcolor {
   transition-duration: 0.5s;
-  background-color: #a29eea;
+  background-color: #3d36b4;
+  color: #fff;
 }
 @media (max-width: 700px) {
   .quantity__body {

@@ -41,10 +41,10 @@
               </div>
               <div class="sunphase" v-if="services.sunphase">
                 <div class="sunphase__sunrise">
-                  Sunrise: {{ dayForecast.astro.sunrise }}
+                  Rise: {{ dayForecast.astro.sunrise }}
                 </div>
                 <div class="sunphase__sunset">
-                  Sunset: {{ dayForecast.astro.sunset }}
+                  Set: {{ dayForecast.astro.sunset }}
                 </div>
               </div>
             </div>
@@ -158,11 +158,13 @@ export default {
 .card__body {
   font-family: "Nunito Sans", sans-serif;
   padding: 10px 10px 5px 10px;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   border-radius: 10px;
   text-align: center;
-  background-color: #c3dded;
   width: 100px;
+  background-color: #2178dc;
+  font-weight: 600;
+  color: #fff;
 }
 .weather {
   display: flex;
@@ -181,22 +183,20 @@ export default {
   width: 64px;
 }
 .rain {
-  font-size: 9px;
+  font-size: 11px;
 }
 .wind {
-  font-size: 9px;
+  font-size: 11px;
 }
 .humidity {
-  font-size: 9px;
+  font-size: 11px;
 }
-.sunphase {
-  font-size: 9px;
-}
+
 .sunphase {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-size: 9px;
+  font-size: 11px;
 }
 .overflowX {
   overflow-x: scroll;

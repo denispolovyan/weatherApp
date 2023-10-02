@@ -56,18 +56,20 @@ export default {
 <style scoped>
 .header__body {
   font-family: "Nunito Sans", sans-serif;
-  height: 40px;
+  font-weight: 600;
+  height: 60px;
   display: flex;
   align-items: center;
-  background-color: #e0f1f6;
+  background-color: #82daf8;
   padding: 0px 20px;
+  gap: 10px;
 }
 .logo {
   flex: 1 1 200px;
 }
 .logo__body img {
-  height: 40px;
-  max-width: 40px;
+	height: 40px;
+	min-width: 130px;
 }
 .list {
   width: 100%;
@@ -84,15 +86,19 @@ export default {
 }
 .city {
   padding: 2.5px 15px;
-  background-color: #a29eea;
+  background-color: #3d36b4;
   border-radius: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  color: #fff
 }
 @media (max-width: 700px) {
-  .city {
-    padding: 5px 6px;
-  }
+	.city {
+  padding: 2.5px 5px;
+}
   .list__body {
-    gap: 10px;
+    gap: 5px;
   }
   .header__body {
     padding: 0px 10px;

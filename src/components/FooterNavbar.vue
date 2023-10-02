@@ -14,9 +14,11 @@
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #e0f1f6;
+  background-color: #3d36b4;
   padding: 0px 20px;
   font-family: "Nunito Sans", sans-serif;
+  color: #fff;
+  font-weight: 600;
 }
 .list {
   width: 100%;

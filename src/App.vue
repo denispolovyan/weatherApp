@@ -143,7 +143,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #e9fdf5;
+  background-color: #ffffff;
   margin: 0px 15%;
 }
 .main__block {

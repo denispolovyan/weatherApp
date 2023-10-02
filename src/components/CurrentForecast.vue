@@ -46,11 +46,12 @@ export default {
   gap: 5px;
   border-radius: 5px;
   padding: 10px;
-  background-color: #c3dded;
-  border: 1px solid #000;
+  background-color: #2178dc;
   flex-direction: column;
-  box-shadow: 1.5px -4px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1.5px -4px 2px 0px rgba(20, 115, 138, 0.5);
   font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  color: #fff
 }
 .current__date {
   white-space: nowrap;

@@ -75,17 +75,22 @@ export default {
 <style scoped>
 .service {
   padding: 0px 20px;
-  background-color: #ced9ff;
+  background-color: #3d36b4;
 }
 .service__body {
-  height: 40px;
+  height: 60px;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
   justify-content: end;
   font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+
 }
 .service__item {
+	display: flex;
+  align-items: center;
+  height: 30px;
   background-color: #fff;
   padding: 2.5px 15px;
   border-radius: 5px;
@@ -93,7 +98,9 @@ export default {
 }
 .bgcolor {
   transition-duration: 0.5s;
-  background-color: #a29eea;
+  background-color: #3d36b4;
+  color: #fff
+
 }
 @media (max-width: 700px) {
   .service__body {
